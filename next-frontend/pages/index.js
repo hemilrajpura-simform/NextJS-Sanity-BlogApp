@@ -1055,7 +1055,7 @@ export default function Home({ blogs }) {
                       <Link key={blogIitem.slug.current}
                         href={"/blog/" + blogIitem.slug.current} className="shadow cursor-pointer">
                         <div><div
-                          style={{ backgroundImage: `url(${builder.image(blogs[1].blogimage).width(200).url() || '/assets/img / bg - hero.jpg'})` }}
+                          style={{ backgroundImage: `url(${builder.image(blogIitem .blogimage).width(200).url() || '/assets/img / bg - hero.jpg'})` }}
                           className="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
                         >
                           <span
@@ -1258,20 +1258,11 @@ export async function getServerSideProps(context) {
     dataset: "production",
     useCdn: false
   });
-  const query = `*[_type=="blog"]`;
+  const query = `*[_type=="blog"][0...3]`;
   const blogs = await client.fetch(query);
   return {
     props: {
       blogs
     }
   }
-
-  {/* // <div classNameName="home">
-    //   <div classNameName="nav mx-8">
-    //     <h1>{blogs[0].title}</h1>
-    //     <div classNameName='mx-9'>
-    //       c
-    //     </div>
-    //   </div></div> */}
-
 }
