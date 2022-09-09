@@ -2,8 +2,8 @@ import { createClient } from 'next-sanity'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import PortableText from 'react-portable-text'
-
-const Post = ({blog}) => {
+import Nav from '../../components/Nav'
+const Post = ({ blog }) => {
     const router = useRouter()
     const { slug } = router.query
 
@@ -100,140 +100,8 @@ const Post = ({blog}) => {
             >
 
                 {/* <div id="main" className="relative"> */}
-                <div
-                    x-data="{
-    triggerNavItem(id) {
-        $scroll(id)
-    },
-    triggerMobileNavItem(id) {
-        mobileMenu = false;
-        this.triggerNavItem(id)
-    }
-}"
-                >
-                    <div className="w-full z-50 top-0 py-3 sm:py-5  bg-primary ">
-                        <div className="container flex items-center justify-between">
-                            <div>
-                                <a href="/">
-                                    <img src="/assets/img/logo.svg" className="w-24 lg:w-48" alt="logo image" />
-                                </a>
-                            </div>
-                            <div className="hidden lg:block">
-                                <ul className="flex items-center">
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#about"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >About</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#services"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Services</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#portfolio"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Portfolio</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#clients"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Clients</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#work"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Work</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#statistics"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Statistics</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#blog"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Blog</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                    <li className="group pl-6">
-
-                                        <a
-                                            href="/#contact"
-                                            className="cursor-pointe pt-0.5 font-header font-semibold uppercase text-white"
-                                        >Contact</a
-                                        >
-
-                                        <span
-                                            className="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
-                                        ></span>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div className="block lg:hidden">
-                                <button>
-                                    <i className="bx bx-menu text-4xl text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                    <Nav/>
 
                     <div
                         className="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden"
@@ -339,7 +207,7 @@ const Post = ({blog}) => {
                                 <h1
                                     className="pt-5 font-body text-3xl font-semibold text-primary sm:text-4xl md:text-5xl xl:text-6xl"
                                 >
-                                   {blog.title}
+                                    {blog.title}
                                 </h1>
                                 <div className="flex items-center pt-5 md:pt-10">
                                     <div>
@@ -360,19 +228,18 @@ const Post = ({blog}) => {
                                 </div>
                             </div>
                             <div className="prose max-w-none pt-8">
-                            <PortableText
-                            // Pass in block content straight from Sanity.io
-                            content={blog.content}
-                            projectId="qcjgjnc6"
-                            dataset="production"
-                            // Optionally override marks, decorators, blocks, etc. in a flat
-                            // structure without doing any gymnastics
-                            serializers={{
-                              h1: (props) => <h1 style={{ color: "red" }} {...props} />,
-                              li: ({ children }) => <li className="special-list-item">{children}</li>
-
-                            }}
-                          />        
+                                <PortableText
+                                    // Pass in block content straight from Sanity.io
+                                    content={blog.content}
+                                    projectId="qcjgjnc6"
+                                    dataset="production"
+                                    // Optionally override marks, decorators, blocks, etc. in a flat
+                                    // structure without doing any gymnastics
+                                    serializers={{
+                                        h1: (props) => <h1 style={{ color: "red" }} {...props} />,
+                                        li: ({ children }) => <li className="special-list-item">{children}</li>
+                                    }}
+                                />
                             </div>
                             <div className="mt-10 flex justify-between border-t border-lila py-12">
                                 <a href="/" className="flex items-center">
@@ -494,7 +361,7 @@ export const getServerSideProps = async (context) => {
     });
     const query = `*[_type == "blog" && slug.current == '${slug}'][0]`;
     const blog = await client.fetch(query);
-   console.log(blog)
+    console.log(blog)
     return {
         props: {
             blog

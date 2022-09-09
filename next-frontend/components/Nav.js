@@ -2,7 +2,7 @@
 const Nav = () => {
     return (
         <div>
-            <div className="w-full z-50 top-0 py-3 sm:py-5 absolute bg-[#493798] 
+            <div className="w-full z-50 top-0 py-3 sm:py-3 absolute bg-[#493798] 
   ">
                 <div className="container flex items-center justify-between">
                     <div className="mx-12">
