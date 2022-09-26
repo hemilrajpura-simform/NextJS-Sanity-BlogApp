@@ -12,7 +12,7 @@ const Post = ({ blog }) => {
             <Head>
                 <meta charSet="utf-8" />
 
-                <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+                <meta content="IE=edge,chrome=1" />
 
                 <meta
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -95,9 +95,7 @@ const Post = ({ blog }) => {
                     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-dark.min.css"
                 />
             </Head>
-            <body className="relative"
-                x-data="{ mobileMenu: false }"
-            >
+            <body className="relative">
 
                 {/* <div id="main" className="relative"> */}
                 <div>
